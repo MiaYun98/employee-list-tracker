@@ -16,7 +16,7 @@ VALUES
 
 INSERT INTO employees (first_name, last_name, role_id, manager_id)
 VALUES
-("Dave", "Devine", 1, null),
-("Kate", "Spade", 3, null),
-("Levin", "Lococo", 2, null),
+("Dave", "Devine", 1, DEFAULT),
+("Kate", "Spade", 3, DEFAULT),
+("Levin", "Lococo", 2, DEFAULT),
 ("Soraka", "Healer", 3, 2);
