@@ -12,8 +12,7 @@ const db = mysql.createConnection(
     // Add MySQL password
     password: 'password',
     database: 'company_db'
-  },
-  console.log(`Connected to the company_db database.`)
+  }
 );
 
 // function that asking what you want to do? 
@@ -50,7 +49,10 @@ function firstPrompt() {
         addDepartment();
         break;
       case 'Quit':
-        return console.log("byebye");
+        db.end();
+        break;
+      default: 
+        return;
     }
   })
 }
@@ -243,7 +245,22 @@ function addEmployee() {
 //starting the inquirer
 const init = async () => {
   try {
-    console.log("Employee Manager");
+    console.log(`
+    ,-----------------------------------------------------,
+    |   ____                  _                           |
+    |  | ___|_ ___ ___  _ __ | | ___  _   _  ___   ___    |
+    |  |  _|| ' _ ' _ \\| '_ \\| |/   \\| | | |/ _ \\ / _ \\   |
+    |  | |__|  | | | | | |_) | | ( ) | |_| |  __/|  __/   |
+    |  |____|__| |_| |_| ,__/|_|\\___/ \\__  |\\___| \\___|   |
+    |                  |_|             |__ /              |
+    |   __  __                                            |
+    |  |  \\/  | __ _ _ __   __ _  __ _  ___ _ __          |
+    |  | |\\/| |/ _' | '_ \\ / _' |/ _' |/ _ \\ '__|         |
+    |  | |  | | (_| | | | | (_| | ( | |  __/ |            |
+    |  |_|  |_|\\__,_|_| |_|\\__,_|\\__, |\\___|_|            |
+    |                            |___/                    |
+    '_____________________________________________________'
+    `);
     await firstPrompt();
   } catch (err) {
     console.log(err);
